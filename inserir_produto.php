@@ -10,9 +10,10 @@ $qtdProduto = $_POST['qtdProduto'];
 $fornecedorProduto = $_POST['fornecedorProduto'];
 
 /*Comando SQL para inserir no BD os dados do formulário.*/
-$sql = "INSERT INTO `estoque`(,`nroProduto`, `nomeProduto`, `categProduto`, `fornecedorProduto`, `qtdProduto`) 
+$sql = "INSERT INTO `estoque`(`nroProduto`, `nomeProduto`, `categProduto`, `fornecedorProduto`, `qtdProduto`) 
         VALUES ($nroProduto,'$nomeProduto','$categProduto','$fornecedorProduto',$qtdProduto)";
 
-$inserir = mysqli_connect($conexao,$sql);
+
+$inserir = mysqli_query($conexao,$sql);
 
 ?>

@@ -8,4 +8,8 @@ $password = ""; //Senha de conexão do BD
 
 //Criando a conexao
 $conexao = mysqli_connect($servername, $username, $password, $database);
+
+if($conexao){
+    //echo "Conectado com sucesso!";
+}
 ?>
