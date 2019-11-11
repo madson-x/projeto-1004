@@ -17,3 +17,14 @@ $sql = "INSERT INTO `estoque`(`nroProduto`, `nomeProduto`, `categProduto`, `forn
 $inserir = mysqli_query($conexao,$sql);
 
 ?>
+
+<link rel="stylesheet" href="css/bootstrap.css">
+<center>
+        <div class="container" style"width: 500px; margin-top: 20px">
+                
+                <h4>Produto adicionado com sucesso!</h4>
+                <div style="padding-top:20px"></div>
+                <a href="index.php" role="button" class="btn btn-sm btn-primary">Cadastrar novo item</a>
+                
+        </div>
+</center>
