@@ -1,10 +1,3 @@
-<?php
-include 'conexao.php';
-$id = $_GET['id'];
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -30,38 +23,23 @@ $id = $_GET['id'];
 <body>
 
 <div class="container" id="tamanhoContainer" style="margin-top:40px">
-    <h4>EDITAR PRODUTO</h4>
-    <form action="atualizar_produto.php" method="post" style="margin-top:40px">
-        <?php
-        
-            $sql = "SELECT * FROM `estoque` WHERE id_estoque = $id"; 
-            $buscar = mysqli_query($conexao,$sql);
-            while ($array= mysqli_fetch_array($buscar)) {
-                $id_estoque = $array['id_estoque'];
-                $nroProduto = $array['nroProduto'];
-                $nomeProduto = $array['nomeProduto'];
-                $categProduto = $array['categProduto'];
-                $fornecedorProduto = $array['fornecedorProduto'];
-                $qtdProduto = $array['qtdProduto'];            
-            }        
-        ?>
-
+    <h4>FORMULÁRIO DE CADASTRO</h4>
+    <form action="inserir_produto.php" method="post" style="margin-top:40px">
       <div class="form-group">
         <label>Número do produto</label>
-        <input type="number" class="form-control" name="nroProduto" value="<?php echo $nroProduto ?>" disabled>
-        <input type="number" class="form-control" name="id" value="<?php echo $id ?>" style="display:none">
+        <input type="number" class="form-control" name="nroProduto" placeholder="Insira o número do produto." required autocomplete="off">
       </div>
       <div class="form-group">
         <label>Nome produto</label>
-        <input type="text" class="form-control" name="nomeProduto" value="<?php echo $nomeProduto ?>">
+        <input type="text" class="form-control" name="nomeProduto" placeholder="Insira o nome do produto."required autocomplete="off">
       </div>
       <div class="form-group">
         <label>Quantidade</label>
-        <input type="number" class="form-control" name="qtdProduto" value="<?php echo $qtdProduto ?>">
+        <input type="number" class="form-control" name="qtdProduto" placeholder="Insira a quantidade de itens do produto."required autocomplete="off">
       </div>
       <div class="form-group">
         <label >Categoria</label>
-        <select class="form-control" name="categProduto">
+        <select class="form-control" name="categProduto" required autocomplete="off">
             <option>Periféricos</option>
             <option>Hardware</option>
             <option>Software</option>
@@ -70,18 +48,17 @@ $id = $_GET['id'];
       </div>
       <div class="form-group">
         <label >Fornecedor</label>
-        <select class="form-control" name="fornecedorProduto">
+        <select class="form-control" name="fornecedorProduto" required autocomplete="off">
             <option>Fornecedor A</option>
             <option>Fornecedor B</option>
             <option>Fornecedor C</option>
             <option>Fornecedor D</option>
         </select>
       </div>
-      <button type="submit" id="btnUpd" class="btn btn-sm">Atualizar</button>
+      <button type="submit" id="btnCad" class="btn btn-sm">Cadastrar</button>
+      <a href="index.php" id="btnVoltar" class="btn btn-sm btn-primary">Voltar</a>
     </form>
-
 </div>
-
 
 <script type="text/javascript" scr="js/bootstrap.js"></script>
 </body>
